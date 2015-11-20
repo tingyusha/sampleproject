@@ -47,7 +47,7 @@ class UITest_Message: XCTestCase {
         app.tables.staticTexts["沙医生"].tap()
         app.buttons["input gift"].tap()
         
-        let element = app.descendantsMatchingType(.Unknown)
+        let element = app.scrollViews.otherElements
         element.buttons["gift 1 s"].tap()
         app.buttons["知道了"].tap()
         element.buttons["gift 2 s"].tap()
@@ -68,19 +68,21 @@ class UITest_Message: XCTestCase {
         
     }
     
+    
     //发送文本
     func test01_sendText() {
         let app = XCUIApplication()
         app.tabBars.buttons["消息"].tap()
         app.tables.staticTexts["沙医生"].tap()
         
-        let textView = app.childrenMatchingType(.Window).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(3).childrenMatchingType(.Unknown).elementAtIndex(1).childrenMatchingType(.TextView).elementAtIndex(0)
+        let textView = app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(4).childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.TextView).element
         textView.tap()
         app.typeText("你好呀")
         app.buttons["Send"].tap()
         app.navigationBars["ChatView"].buttons["返回"].tap()
         
     }
+    
 
     //发送病例
     func test02_sendIllessCase() {
@@ -88,7 +90,7 @@ class UITest_Message: XCTestCase {
         app.tabBars.buttons["消息"].tap()
         app.tables.staticTexts["沙医生"].tap()
         app.buttons["input more"].tap()
-        app.descendantsMatchingType(.Unknown).buttons["more medhist"].tap()
+        app.descendantsMatchingType(.Other).buttons["more medhist"].tap()
         app.tables.buttons["小儿感冒"].tap()
         
         let navigationBar = app.navigationBars["填写资料"]
@@ -106,7 +108,7 @@ class UITest_Message: XCTestCase {
         app.tabBars.buttons["消息"].tap()
         app.tables.staticTexts["沙医生"].tap()
         app.buttons["input more"].tap()
-        app.descendantsMatchingType(.Unknown).buttons["more medhist"].tap()
+        app.descendantsMatchingType(.Other).buttons["more medhist"].tap()
         app.tables.buttons["小儿感冒"].tap()
         
         let navigationBar = app.navigationBars["填写资料"]
@@ -121,7 +123,7 @@ class UITest_Message: XCTestCase {
         app.tabBars.buttons["消息"].tap()
         app.tables.staticTexts["沙医生"].tap()
         app.buttons["input more"].tap()
-        app.descendantsMatchingType(.Unknown).buttons["more medhist"].tap()
+        app.descendantsMatchingType(.Other).buttons["more medhist"].tap()
         app.textFields["输入您的疾病"].tap()
         app.typeText("自定义疾病")
         
@@ -139,7 +141,7 @@ class UITest_Message: XCTestCase {
         app.tabBars.buttons["消息"].tap()
         app.tables.staticTexts["沙医生"].tap()
         app.buttons["input more"].tap()
-        app.descendantsMatchingType(.Unknown).buttons["more medhist"].tap()
+        app.descendantsMatchingType(.Other).buttons["more medhist"].tap()
         app.textFields["输入您的疾病"].tap()
         app.typeText("小儿感")
         app.tables.staticTexts["小儿感冒"].tap()
@@ -156,24 +158,16 @@ class UITest_Message: XCTestCase {
         let app = XCUIApplication()
         app.tabBars.buttons["消息"].tap()
         app.tables.staticTexts["沙医生"].swipeLeft()
-        app.tables.childrenMatchingType(.Cell).elementAtIndex(0).childrenMatchingType(.Button).matchingIdentifier("Delete").elementAtIndex(0).tap()
+        app.tables.buttons["Delete"].tap()
         app.tabBars.buttons["我"].tap()
         app.tables.staticTexts["我的医生"].tap()
         app.tables.staticTexts["沙医生"].tap()
-        app.tables.staticTexts["图文咨询"].tap()
-        let textView = app.childrenMatchingType(.Window).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(3).childrenMatchingType(.Unknown).elementAtIndex(1).childrenMatchingType(.TextView).elementAtIndex(0)
-        textView.tap()
-        app.tables.buttons["小儿感冒"].tap()
-        
-        let navigationBar = app.navigationBars["填写资料"]
-        navigationBar.buttons["下一步"].tap()
-        app.tables.staticTexts["选择"].tap()
-        app.tables.staticTexts["前天"].tap()
-        navigationBar.buttons["提交"].tap()
+        app.buttons["发消息"].tap()
+        let textView = app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(4).childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.TextView).element
         textView.tap()
         app.typeText("你好呀")
         app.buttons["Send"].tap()
         app.navigationBars["ChatView"].buttons["返回"].tap()
     }
-
-   }
+    
+}

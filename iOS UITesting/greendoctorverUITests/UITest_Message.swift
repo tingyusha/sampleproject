@@ -53,7 +53,7 @@ class UITest_Message: XCTestCase {
         table.searchFields["Search"].tap()
         table.searchFields["Search"].typeText("青苹果")
         app.keyboards.buttons["search"].tap()
-        app.tables["Empty list"].childrenMatchingType(.Cell).elementAtIndex(1).staticTexts["青苹果客服"].tap()
+        app.tables["Empty list"].childrenMatchingType(.Cell).elementBoundByIndex(1).staticTexts["青苹果客服"].tap()
         app.navigationBars["ChatView"].buttons["消息"].tap()
         
     }
@@ -66,7 +66,7 @@ class UITest_Message: XCTestCase {
         table.searchFields["Search"].tap()
         table.searchFields["Search"].typeText("青苹果")
         app.keyboards.buttons["search"].tap()
-        app.tables["Empty list"].childrenMatchingType(.Cell).elementAtIndex(0).staticTexts["青苹果客服"].tap()
+        app.tables["Empty list"].childrenMatchingType(.Cell).elementBoundByIndex(0).staticTexts["青苹果客服"].tap()
         app.navigationBars["ChatView"].buttons["消息"].tap()
         
     }
@@ -76,11 +76,12 @@ class UITest_Message: XCTestCase {
         let app = XCUIApplication()
         app.tables.staticTexts["熟悉患者A"].tap()
         
-        let textView = app.childrenMatchingType(.Window).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(3).childrenMatchingType(.Unknown).elementAtIndex(2).childrenMatchingType(.TextView).elementAtIndex(0)
+        let textView = app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(3).childrenMatchingType(.Other).elementBoundByIndex(2).childrenMatchingType(.TextView).elementBoundByIndex(0)
         textView.tap()
         textView.typeText("你好")
         app.buttons["Send"].tap()
     }
+    
     
     //发送语音
     func test04_sendVoice() {
@@ -97,7 +98,8 @@ class UITest_Message: XCTestCase {
         app.tables.staticTexts["熟悉患者A"].tap()
         app.buttons["input attach"].tap()
         
-        let element = app.descendantsMatchingType(.Unknown)
+        let element = app.descendantsMatchingType(.Other)
+//        let element = app.descendantsMatchingType()
         element.buttons["more freecall"].tap()
         element.buttons["修改》"].tap()
         
@@ -106,7 +108,7 @@ class UITest_Message: XCTestCase {
         
         app.buttons["修改"].tap()
         XCTAssert(self.canOperateElement(element.staticTexts["17000000019"]), "修改手机号失败")
-    app.navigationBars["免费通话"].childrenMatchingType(.Button).matchingIdentifier("Back").elementAtIndex(0).tap()
+    app.navigationBars["免费通话"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0).tap()
         
     }
     //发送常用语
@@ -114,9 +116,9 @@ class UITest_Message: XCTestCase {
         let app = XCUIApplication()
         app.tables.staticTexts["熟悉患者A"].tap()
         app.buttons["input attach"].tap()
-        app.descendantsMatchingType(.Unknown).buttons["more template"].tap()
+        app.descendantsMatchingType(.Other).buttons["more template"].tap()
         app.tables.staticTexts["你提供的资料还不够完整，请上传更多检查材料"].tap()
-        app.childrenMatchingType(.Window).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(3).childrenMatchingType(.Unknown).elementAtIndex(2).childrenMatchingType(.TextView).elementAtIndex(0).typeText("\n")
+        app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(3).childrenMatchingType(.Other).elementBoundByIndex(2).childrenMatchingType(.TextView).elementBoundByIndex(0).typeText("\n")
         app.buttons["Send"].tap()
         
     }
@@ -126,7 +128,7 @@ class UITest_Message: XCTestCase {
         let app = XCUIApplication()
         app.tables.staticTexts["你提供的资料还不够完整，请上传更多检查材料"].tap()
         app.buttons["input attach"].tap()
-        app.descendantsMatchingType(.Unknown).buttons["more template"].tap()
+        app.descendantsMatchingType(.Other).buttons["more template"].tap()
         app.buttons["新增常用语"].tap()
         app.typeText("常来")
         app.navigationBars["新建常用语"].buttons["保存"].tap()
@@ -138,7 +140,7 @@ class UITest_Message: XCTestCase {
         let app = XCUIApplication()
         app.tables.staticTexts["你提供的资料还不够完整，请上传更多检查材料"].tap()
         app.buttons["input attach"].tap()
-        app.descendantsMatchingType(.Unknown).buttons["more template"].tap()
+        app.descendantsMatchingType(.Other).buttons["more template"].tap()
         
         let navigationBar = app.navigationBars["我的常用语"]
         navigationBar.buttons["Edit"].tap()
@@ -153,12 +155,12 @@ class UITest_Message: XCTestCase {
         let app = XCUIApplication()
         app.tables.staticTexts["女20岁"].tap()
         app.buttons["input attach"].tap()
-        app.descendantsMatchingType(.Unknown).buttons["more template"].tap()
+        app.descendantsMatchingType(.Other).buttons["more template"].tap()
         
         let navigationBar = app.navigationBars["我的常用语"]
         navigationBar.buttons["Edit"].tap()
         app.tables.buttons["Delete 常来玩"].tap()
-        app.tables.childrenMatchingType(.Cell).elementAtIndex(0).childrenMatchingType(.Button).matchingIdentifier("Delete").elementAtIndex(0).tap()
+        app.tables.childrenMatchingType(.Cell).elementBoundByIndex(0).childrenMatchingType(.Button).matchingIdentifier("Delete").elementBoundByIndex(0).tap()
         navigationBar.buttons["Done"].tap()
        
     }
@@ -168,7 +170,7 @@ class UITest_Message: XCTestCase {
         let app = XCUIApplication()
         app.navigationBars["消息"].buttons["群发"].tap()
         app.buttons["新建群发"].tap()
-        app.tables.childrenMatchingType(.Cell).elementAtIndex(0).childrenMatchingType(.TextView).elementAtIndex(0).tap()
+        app.tables.childrenMatchingType(.Cell).elementBoundByIndex(0).childrenMatchingType(.TextView).elementBoundByIndex(0).tap()
         app.typeText("通知大家")
         app.typeText("\n")
         app.tables.buttons["发送"].tap()
@@ -190,7 +192,7 @@ class UITest_Message: XCTestCase {
         textField.tap()
         textField.typeText("新文章标题")
         app.keyboards.buttons["done"].tap()
-        let textField2 = app.tables.childrenMatchingType(.Cell).elementAtIndex(2).childrenMatchingType(.TextView).elementAtIndex(0)
+        let textField2 = app.tables.childrenMatchingType(.Cell).elementBoundByIndex(2).childrenMatchingType(.TextView).elementBoundByIndex(0)
         textField2.tap()
         textField2.typeText("新文章内容")
         app.typeText("\n")
@@ -203,7 +205,7 @@ class UITest_Message: XCTestCase {
         app.tables.staticTexts["我的文章"].tap()
         app.tables.staticTexts["新文章标题"].tap()
         app.navigationBars["新文章标题"].buttons["我的文章"].tap()
-        let cell = app.tables.childrenMatchingType(.Cell).elementAtIndex(0)
+        let cell = app.tables.childrenMatchingType(.Cell).elementBoundByIndex(0)
         cell.buttons["article more"].tap()
         cell.buttons[" 删除"].tap()
         app.alerts["确定删除吗?"].buttons["删除"].tap()
@@ -221,7 +223,7 @@ class UITest_Message: XCTestCase {
         textField.tap()
         textField.typeText("群发文章标题")
         app.typeText("\n")
-        let textField2 = app.tables.childrenMatchingType(.Cell).elementAtIndex(2).childrenMatchingType(.TextView).elementAtIndex(0)
+        let textField2 = app.tables.childrenMatchingType(.Cell).elementBoundByIndex(2).childrenMatchingType(.TextView).elementBoundByIndex(0)
         textField2.tap()
         textField2.typeText("群发文章内容")
         app.typeText("\n")
@@ -235,7 +237,7 @@ class UITest_Message: XCTestCase {
         app.tables.staticTexts["群发文章标题"].tap()
         app.navigationBars["群发文章"].buttons["取消"].tap()
         app.sheets.buttons["放弃编辑"].tap()
-        app.tables.childrenMatchingType(.Cell).elementAtIndex(0).buttons["article draft delete"].tap()
+        app.tables.childrenMatchingType(.Cell).elementBoundByIndex(0).buttons["article draft delete"].tap()
         app.alerts["确定删除吗?"].buttons["删除"].tap()
         
     }
@@ -249,7 +251,7 @@ class UITest_Message: XCTestCase {
         let textField = app.tables.textFields["请输入标题"]
         textField.tap()
         textField.typeText("新建草稿并发送")
-        let textField2 = app.tables.childrenMatchingType(.Cell).elementAtIndex(2).childrenMatchingType(.TextView).elementAtIndex(0)
+        let textField2 = app.tables.childrenMatchingType(.Cell).elementBoundByIndex(2).childrenMatchingType(.TextView).elementBoundByIndex(0)
         textField2.tap()
         textField2.typeText("新建文章内容")
         app.buttons["保存/预览"].tap()
@@ -268,7 +270,7 @@ class UITest_Message: XCTestCase {
         app.buttons["已发布"].tap()
         app.tables.staticTexts["新建草稿并发送"].tap()
         app.navigationBars["新建草稿并发送"].buttons["我的文章"].tap()
-        let cell = app.tables.childrenMatchingType(.Cell).elementAtIndex(0)
+        let cell = app.tables.childrenMatchingType(.Cell).elementBoundByIndex(0)
         cell.buttons["article more"].tap()
         cell.buttons[" 删除"].tap()
         app.alerts["确定删除吗?"].buttons["删除"].tap()

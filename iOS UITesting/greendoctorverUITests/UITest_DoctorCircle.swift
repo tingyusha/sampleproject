@@ -75,7 +75,7 @@ class UITest_DoctorCircle: XCTestCase {
         app.tabBars.buttons["医生圈"].tap()
         app.navigationBars["医生圈"].buttons["找医生"].tap()
         app.tables.staticTexts["按医院科室找"].tap()
-        app.childrenMatchingType(.Window).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Table).elementAtIndex(1).childrenMatchingType(.Cell).elementAtIndex(3).staticTexts["上海瑞金"].tap()
+        app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Table).elementBoundByIndex(1).childrenMatchingType(.Cell).elementBoundByIndex(3).staticTexts["上海瑞金"].tap()
         app.tables.staticTexts["心内科"].tap()
         app.tables.staticTexts["陆国平"].tap()
         
@@ -91,9 +91,9 @@ class UITest_DoctorCircle: XCTestCase {
     func test04_checkRankingDoctorDetail() {
         let app = XCUIApplication()
         app.tabBars.buttons["医生圈"].tap()
-        app.tables.childrenMatchingType(.Cell).elementAtIndex(0).childrenMatchingType(.StaticText).matchingIdentifier("全国专家礼物榜").elementAtIndex(0).tap()
+        app.tables.childrenMatchingType(.Cell).elementBoundByIndex(0).childrenMatchingType(.StaticText).matchingIdentifier("全国专家礼物榜").elementBoundByIndex(0).tap()
         app.tables.staticTexts["4"].tap()
-        app.navigationBars["医生详情"].childrenMatchingType(.Button).matchingIdentifier("Back").elementAtIndex(0).tap()
+        app.navigationBars["医生详情"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0).tap()
         
     }
     
@@ -114,7 +114,7 @@ class UITest_DoctorCircle: XCTestCase {
     func test06_favourRenewalFriend() {
         let app = XCUIApplication()
         app.tabBars.buttons["医生圈"].tap()
-        app.tables.childrenMatchingType(.Cell).elementAtIndex(3).buttons[" 赞"].tap()
+        app.tables.childrenMatchingType(.Cell).elementBoundByIndex(3).buttons[" 赞"].tap()
         app.tables.buttons[" 已赞"].tap()
         app.navigationBars.buttons["医生圈"].tap()
         app.tables.staticTexts["赞过我的"].tap()

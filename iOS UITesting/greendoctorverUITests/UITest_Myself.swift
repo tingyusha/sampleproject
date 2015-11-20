@@ -50,7 +50,7 @@ class UITest_Myself: XCTestCase {
             app.alerts["“青苹果医生版” Would Like to Access Your Photos"].collectionViews.buttons["OK"].tap()
         }
         app.alerts["保存成功！"].collectionViews.buttons["好的"].tap()
-        app.childrenMatchingType(.Window).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(1).staticTexts["沙医生"].tap()
+        app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(1).staticTexts["沙医生"].tap()
         
     }
     
@@ -196,7 +196,7 @@ class UITest_Myself: XCTestCase {
         textField.tap()
         textField.typeText("我是文章草稿标题")
         app.keyboards.buttons["done"].tap()
-        let textField2 = app.tables.childrenMatchingType(.Cell).elementAtIndex(2).childrenMatchingType(.TextView).elementAtIndex(0)
+        let textField2 = app.tables.childrenMatchingType(.Cell).elementBoundByIndex(2).childrenMatchingType(.TextView).elementBoundByIndex(0)
         textField2.tap()
         textField2.typeText("我是文章内容")
         app.buttons["保存/预览"].tap()
@@ -207,14 +207,14 @@ class UITest_Myself: XCTestCase {
         app.tabBars.buttons["我"].tap()
         app.tables.staticTexts["我的文章"].tap()
         app.buttons["草稿箱"].tap()
-        app.tables.childrenMatchingType(.Cell).elementAtIndex(0).staticTexts["我是文章草稿标题"].tap()
+        app.tables.childrenMatchingType(.Cell).elementBoundByIndex(0).staticTexts["我是文章草稿标题"].tap()
         
         let navigationBar = app.navigationBars["群发文章"]
         navigationBar.buttons["预览"].tap()
         app.navigationBars["文章预览"].buttons["群发文章"].tap()
         navigationBar.buttons["取消"].tap()
         app.sheets["是否保存？"].collectionViews.buttons["保存"].tap()
-        app.tables.childrenMatchingType(.Cell).elementAtIndex(0).buttons["article draft delete"].tap()
+        app.tables.childrenMatchingType(.Cell).elementBoundByIndex(0).buttons["article draft delete"].tap()
         app.alerts["确定删除吗?"].buttons["删除"].tap()
         app.navigationBars["我的文章"].buttons["我"].tap()
         
@@ -230,7 +230,7 @@ class UITest_Myself: XCTestCase {
         arictleTitle.tap()
         arictleTitle.typeText("文章标题待分享")
         app.keyboards.buttons["done"].tap()
-        let arictleContent = app.tables.childrenMatchingType(.Cell).elementAtIndex(2).childrenMatchingType(.TextView).elementAtIndex(0)
+        let arictleContent = app.tables.childrenMatchingType(.Cell).elementBoundByIndex(2).childrenMatchingType(.TextView).elementBoundByIndex(0)
         arictleContent.tap()
         arictleContent.typeText("文章内容")
         app.buttons["保存/预览"].tap()
@@ -248,7 +248,7 @@ class UITest_Myself: XCTestCase {
         app.navigationBars["文章预览"].buttons["群发文章"].tap()
         app.navigationBars["群发文章"].buttons["取消"].tap()
         app.sheets.buttons["放弃编辑"].tap()
-        app.tables.childrenMatchingType(.Cell).elementAtIndex(0).buttons["article draft delete"].tap()
+        app.tables.childrenMatchingType(.Cell).elementBoundByIndex(0).buttons["article draft delete"].tap()
         app.alerts["确定删除吗?"].buttons["删除"].tap()
         
         
@@ -264,7 +264,7 @@ class UITest_Myself: XCTestCase {
         arictleTitle.tap()
         arictleTitle.typeText("草稿待发出")
         app.keyboards.buttons["done"].tap()
-        let arictleContent = app.tables.childrenMatchingType(.Cell).elementAtIndex(2).childrenMatchingType(.TextView).elementAtIndex(0)
+        let arictleContent = app.tables.childrenMatchingType(.Cell).elementBoundByIndex(2).childrenMatchingType(.TextView).elementBoundByIndex(0)
         arictleContent.tap()
         arictleContent.typeText("文章内容")
         app.buttons["保存/预览"].tap()
@@ -285,7 +285,7 @@ class UITest_Myself: XCTestCase {
         app.buttons["已发布"].tap()
         app.tables.staticTexts["草稿待发出--修改"].tap()
         app.navigationBars["草稿待发出--修改"].buttons["我的文章"].tap()
-        let cell = app.tables.childrenMatchingType(.Cell).elementAtIndex(0)
+        let cell = app.tables.childrenMatchingType(.Cell).elementBoundByIndex(0)
         cell.buttons["article more"].tap()
         cell.buttons[" 删除"].tap()
         app.alerts.buttons["删除"].tap()
@@ -300,7 +300,7 @@ class UITest_Myself: XCTestCase {
         app.searchFields["Search"].tap()
         app.typeText("微信")
         app.keyboards.buttons["search"].tap()
-        app.descendantsMatchingType(.Unknown)["Search results"].staticTexts["微信患者A"].tap()
+        app.descendantsMatchingType(.Other)["Search results"].staticTexts["微信患者A"].tap()
         app.navigationBars["患者资料"].buttons["患者(3人)"].tap()
         app.tables.buttons["Clear text"].tap()
         app.tables.buttons["Cancel"].tap()
@@ -444,9 +444,9 @@ class UITest_Myself: XCTestCase {
         sleep(1)
         app.navigationBars["转诊详细信息"].buttons["选择转诊医生"].tap()
         app.staticTexts["按医院科室找"].tap()
-        app.childrenMatchingType(.Window).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Table).elementAtIndex(1).childrenMatchingType(.Cell).elementAtIndex(0).staticTexts["上海中山医院"].tap()
+        app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Table).elementBoundByIndex(1).childrenMatchingType(.Cell).elementBoundByIndex(0).staticTexts["上海中山医院"].tap()
         app.tables.staticTexts["心内科"].tap()
-        table.childrenMatchingType(.Cell).elementAtIndex(0).staticTexts["转"].tap()
+        table.childrenMatchingType(.Cell).elementBoundByIndex(0).staticTexts["转"].tap()
         sleep(1)
         app.buttons["取消"].tap()
         sleep(1)

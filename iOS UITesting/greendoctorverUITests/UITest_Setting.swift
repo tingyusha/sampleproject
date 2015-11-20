@@ -120,13 +120,13 @@ class UITest_Setting: XCTestCase {
         app.navigationBars["新建标签"].buttons["确定"].tap()
         
         sleep(3)
-        app.childrenMatchingType(.Window).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).tap()
+        app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).tap()
         app.tables.staticTexts["从陌生患者导入（1人）"].tap()
         
         
         
         let table = app.tables
-        table.cells.childrenMatchingType(.Button).elementAtIndex(0).tap()
+        table.cells.childrenMatchingType(.Button).elementBoundByIndex(0).tap()
         
         let navigationBar = app.navigationBars["添加患者"]
         navigationBar.buttons["添加患者"].tap()
@@ -150,10 +150,10 @@ class UITest_Setting: XCTestCase {
         
         XCUIApplication().tables.buttons["delete"].tap()
         
-        app.childrenMatchingType(.Window).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).tap()
+        app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(0).tap()
         
         let table = app.tables
-        table.childrenMatchingType(.Cell).elementAtIndex(1).childrenMatchingType(.Button).elementAtIndex(0).tap()
+        table.childrenMatchingType(.Cell).elementBoundByIndex(1).childrenMatchingType(.Button).elementBoundByIndex(0).tap()
         app.navigationBars["添加患者"].buttons["确定(1)"].tap()
         app.navigationBars["标签编辑"].buttons["标签"].tap()
         
